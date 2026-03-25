@@ -1,72 +1,59 @@
 # Cursor workshop
 
-This repository is the home base for a hands-on **Cursor** workshop. It includes a small web app you will extend during the sessions, and it shows how we run and ship that code in one place.
+**What this is:** One folder with everything for our hands-on **Cursor** workshop—a small website you will change during the sessions, step by step, with help from the facilitator.
+
+**What you need to know:** You do not need to be a programmer. Follow the steps below; if something fails, ask for help and we will fix it together.
 
 ## What is Cursor?
 
-**Cursor** is a code editor (built on VS Code) with integrated AI assistance. You work in normal project files—HTML, CSS, TypeScript, React—and use the AI to explain code, suggest edits, refactor, and debug, always with you in control of what gets saved and committed.
+**Cursor** is a code editor (similar to VS Code) with built-in AI. You open this project in Cursor, describe what you want in everyday language, and apply suggestions when you choose to—nothing changes on your computer until you save.
 
-In this workshop, Cursor is the main tool for reading and changing the project alongside the terminal and the browser.
+## Before you start (one-time)
 
-## Technologies in this project
+Ask a helper if you are unsure. You need:
 
-| Technology | Role |
-|------------|------|
-| **[Next.js](https://nextjs.org/)** | React framework: routing, dev server, and production build. This repo uses the **App Router** (`app/`). |
-| **[React](https://react.dev/)** | UI library for components and pages. |
-| **[TypeScript](https://www.typescriptlang.org/)** | Typed JavaScript for safer, clearer code. |
-| **[Tailwind CSS](https://tailwindcss.com/)** | Utility-first styling (classes in JSX). |
-| **[Node.js](https://nodejs.org/)** | Runtime used by the tooling and dev server (install this on your machine first). |
+1. **This folder on your computer** — your facilitator will show how (for example with Git, GitHub Desktop, or a ZIP download).
+2. **Node.js** — a free program that runs the practice website. [Download Node.js (LTS)](https://nodejs.org/) if you do not already have it.
 
-Optional but useful: **[ESLint](https://eslint.org/)** is configured for code quality (`npm run lint`).
+Helpers who need to check installations can use [setup.md](setup.md).
 
-## Prerequisites
+## Run the practice website
 
-- **Node.js** — LTS version recommended (e.g. 20.x or 22.x). [Download](https://nodejs.org/)
-- **Git** — for cloning and version control. Windows attendees often need [Git for Windows](https://git-scm.com/download/win); macOS and Linux usually include it or ship it with developer tools.
-- **npm** — ships with Node (this repo uses `npm` and `package-lock.json`).
-
-Facilitators and helpers who need to verify or repair installs on someone’s machine should follow [setup.md](setup.md) (copy-paste steps for `scripts/check-setup.sh` on macOS, Linux, and Windows).
-
-## Getting started
-
-Clone the repository, then from the project root:
+Open a terminal in **this project’s root folder** (the same folder as `package.json`), then run:
 
 ```bash
 npm install
 ```
 
-Start the development server:
+Then:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. The page hot-reloads when you save changes.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser. When you save a file, the page usually updates on its own.
 
-## How we run things in this repo
+**Day to day:** after the first `npm install`, you normally only run **`npm run dev`** when you work on the project.
 
-| Command | What it does |
-|---------|----------------|
-| `npm run dev` | Starts the **local development server** (use this while building and testing). |
-| `npm run build` | Creates an **optimized production build** in `.next/`. |
-| `npm run start` | Serves the **production build** locally (run `build` first). |
-| `npm run lint` | Runs **ESLint** on the codebase. |
+---
 
-Typical workflow: **`npm install`** once, then **`npm run dev`** whenever you work on the project.
+## Optional: for curious folks
 
-## Project layout
+| | |
+|--|--|
+| **Next.js** | Powers the website (pages and local server). |
+| **React** | Builds the user interface. |
+| **TypeScript** | JavaScript with clearer structure. |
+| **Tailwind CSS** | Styling via short class names in the code. |
 
-```
-app/           # Routes and UI (App Router): layout.tsx, page.tsx, globals.css
-public/        # Static assets (images, etc.)
-next.config.ts # Next.js configuration
-package.json   # Dependencies and scripts
-```
+Other commands some people use later:
 
-The main landing page content lives in **`app/page.tsx`**. Global styles are in **`app/globals.css`**.
+| Command | Meaning in plain terms |
+|---------|-------------------------|
+| `npm run build` | Prepare a “final” version of the site. |
+| `npm run start` | View that final version on your machine (after `build`). |
+| `npm run lint` | Check the code for common issues. |
 
-## Learn more
+**Where things live:** the main page is **`app/page.tsx`**; shared styling is **`app/globals.css`**.
 
-- [Next.js documentation](https://nextjs.org/docs)
-- [Cursor documentation](https://cursor.com/docs)
+**Learn more:** [Next.js docs](https://nextjs.org/docs) · [Cursor docs](https://cursor.com/docs)
