@@ -1,23 +1,17 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Code2,
-  Layers,
-  MessageCircle,
-  Rocket,
-  Sparkles,
-  Users,
+  Megaphone,
+  MonitorSmartphone,
+  Store,
 } from "lucide-react";
 import type { LucideIconName } from "@/constants/content";
 import { servicesSection, valueItems } from "@/constants/content";
 import { SectionReveal } from "@/components/SectionReveal";
 
 const ICON_MAP: Record<LucideIconName, LucideIcon> = {
-  Code2,
-  Users,
-  Rocket,
-  Layers,
-  Sparkles,
-  MessageCircle,
+  Store,
+  MonitorSmartphone,
+  Megaphone,
 };
 
 export function ServicesSection() {
@@ -25,42 +19,45 @@ export function ServicesSection() {
     <section
       id={servicesSection.id}
       aria-labelledby="services-title"
-      className="border-b border-blue-100/80 bg-white px-4 py-20 sm:px-6 sm:py-28"
+      className="border-b border-zinc-200/80 bg-zinc-50 px-4 py-24 sm:px-6 sm:py-32"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <SectionReveal>
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-800">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-rose-600">
               {servicesSection.eyebrow}
             </p>
             <h2
               id="services-title"
-              className="mt-3 text-2xl font-semibold tracking-tight text-blue-950 sm:text-3xl md:text-4xl"
+              className="mt-4 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl"
             >
               {servicesSection.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-zinc-600 sm:text-lg">
               {servicesSection.intro}
             </p>
           </div>
 
-          <ul className="mt-16 divide-y divide-blue-100 border-t border-blue-100">
+          <ul className="mt-16 divide-y divide-zinc-200 border-t border-zinc-200">
             {valueItems.map((item) => {
               const Icon = ICON_MAP[item.icon];
               return (
-                <li key={item.title} className="grid gap-6 py-12 sm:grid-cols-12 sm:items-start sm:gap-8">
-                  <div className="flex items-start gap-4 sm:col-span-1 sm:justify-center sm:pt-1">
+                <li
+                  key={item.title}
+                  className="group grid gap-6 py-12 transition-colors sm:grid-cols-12 sm:items-start sm:gap-10 md:py-14"
+                >
+                  <div className="flex items-start gap-3 sm:col-span-1 sm:justify-center sm:pt-1">
                     <Icon
-                      className="size-6 shrink-0 text-blue-800"
+                      className="size-6 shrink-0 text-rose-600 transition group-hover:scale-105 sm:size-7"
                       strokeWidth={1.75}
                       aria-hidden
                     />
                   </div>
                   <div className="sm:col-span-11">
-                    <h3 className="text-lg font-semibold text-blue-950 sm:text-xl">
+                    <h3 className="text-lg font-semibold text-zinc-900 sm:text-xl">
                       {item.title}
                     </h3>
-                    <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">
+                    <p className="mt-3 max-w-3xl text-base leading-relaxed text-zinc-600">
                       {item.description}
                     </p>
                   </div>

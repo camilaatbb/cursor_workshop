@@ -1,9 +1,13 @@
 import { AboutSection } from "@/components/AboutSection";
-import { FinalCtaAndFooter } from "@/components/FinalCtaAndFooter";
+import { FaqSection } from "@/components/FaqSection";
+import { FinalCtaSection } from "@/components/FinalCtaSection";
 import { HeroSection } from "@/components/HeroSection";
-import { ProjectsSection } from "@/components/ProjectsSection";
+import { PortfolioSection } from "@/components/PortfolioSection";
+import { ProcessSection } from "@/components/ProcessSection";
+import { ServicesSection } from "@/components/ServicesSection";
+import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { ValueGridSection } from "@/components/ValueGridSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -11,11 +15,15 @@ export default function Home() {
       <SiteHeader />
       <main>
         <HeroSection />
-        <ValueGridSection />
-        <ProjectsSection />
         <AboutSection />
-        <FinalCtaAndFooter />
+        <ServicesSection />
+        <ProcessSection />
+        <PortfolioSection />
+        <TestimonialsSection />
+        <FaqSection />
+        <FinalCtaSection />
       </main>
+      <SiteFooter />
     </div>
   );
 }

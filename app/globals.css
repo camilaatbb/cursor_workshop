@@ -1,20 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0c2748;
-  --accent: #00529b;
-  --accent-muted: #e8f1fa;
-  --muted: #4a5f78;
+  --background: #fafafa;
+  --foreground: #18181b;
+  --muted: #71717a;
+  --accent: #e11d48;
   --surface: #ffffff;
-  --border: rgba(12, 39, 72, 0.1);
+  --border: rgba(24, 24, 27, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
   --color-muted: var(--muted);
+  --color-accent: var(--accent);
   --color-surface: var(--surface);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
@@ -23,4 +22,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

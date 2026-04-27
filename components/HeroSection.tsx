@@ -2,6 +2,7 @@
 
 import { useReducedMotion } from "framer-motion";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { heroContent, site } from "@/constants/content";
 
 function splitHeading(heading: string, highlight: string) {
@@ -24,78 +25,97 @@ export function HeroSection() {
   );
   const transition = reduceMotion
     ? { duration: 0 }
-    : { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const };
+    : { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const };
 
   return (
     <section
+      id={heroContent.id}
       aria-labelledby="hero-title"
-      className="relative overflow-hidden border-b border-zinc-200/80 bg-zinc-50 px-4 py-20 sm:px-6 sm:py-28"
+      className="relative isolate w-full min-h-[calc(100svh-3.25rem)]"
     >
+      <Image
+        src={heroContent.image.src}
+        alt={heroContent.image.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(79,70,229,0.12),transparent)]"
+        className="absolute inset-0 bg-zinc-950/50"
         aria-hidden
       />
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-2xl lg:text-left">
-          <motion.p
-            className="text-xs font-medium uppercase tracking-[0.2em] text-indigo-600"
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/55 to-zinc-900/35"
+        aria-hidden
+      />
+
+      <div className="relative z-10 flex min-h-[calc(100svh-3.25rem)] flex-col justify-end px-4 pb-16 pt-20 sm:px-6 sm:pb-20 md:justify-center md:pb-28 md:pt-24">
+        <div className="mx-auto w-full max-w-7xl md:flex md:justify-start">
+          <motion.div
+            className="max-w-xl md:max-w-2xl"
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={transition}
           >
-            {site.brand}
-          </motion.p>
-          <motion.p
-            className="mt-2 text-sm text-zinc-600 sm:text-base"
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.04 }}
-          >
-            {site.tagline}
-          </motion.p>
-          <motion.h1
-            id="hero-title"
-            className="mt-8 text-3xl font-semibold leading-[1.15] tracking-tight text-zinc-900 sm:text-4xl sm:leading-[1.12] md:text-5xl md:leading-[1.1]"
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.08 }}
-          >
-            {before}
-            {highlight ? (
-              <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-500 bg-clip-text text-transparent">
-                {highlight}
-              </span>
-            ) : null}
-            {after}
-          </motion.h1>
-          <motion.p
-            className="mt-6 text-base leading-relaxed text-zinc-600 sm:text-lg"
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.12 }}
-          >
-            {heroContent.subtitle}
-          </motion.p>
-          <motion.div
-            className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduceMotion ? 0 : 0.18 }}
-          >
-            <a
-              href={heroContent.primaryCta.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-indigo-600 px-8 text-sm font-semibold text-white shadow-md shadow-indigo-600/20 transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              aria-label={heroContent.primaryCta.ariaLabel}
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 sm:text-xs">
+              {site.brand}
+            </p>
+            <p className="mt-3 max-w-md text-sm leading-snug text-white/80 sm:text-base">
+              {site.tagline}
+            </p>
+            <p className="mt-4 inline-flex rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white/95 backdrop-blur-md sm:text-sm">
+              {heroContent.badge}
+            </p>
+            <h1
+              id="hero-title"
+              className="mt-6 text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl sm:leading-[1.1] md:text-5xl md:leading-[1.08]"
             >
-              {heroContent.primaryCta.label}
-            </a>
-            <a
-              href={heroContent.secondaryCta.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-zinc-300 bg-white/80 px-8 text-sm font-semibold text-zinc-800 backdrop-blur-sm transition hover:border-zinc-400 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400"
-              aria-label={heroContent.secondaryCta.ariaLabel}
-            >
-              {heroContent.secondaryCta.label}
-            </a>
+              {before}
+              {highlight ? (
+                <span className="bg-gradient-to-r from-rose-200 via-white to-rose-100 bg-clip-text text-transparent">
+                  {highlight}
+                </span>
+              ) : null}
+              {after}
+            </h1>
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-zinc-200/95 sm:text-lg">
+              {heroContent.subtitle}
+            </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <motion.div
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...transition, delay: reduceMotion ? 0 : 0.08 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+              >
+                <a
+                  href={heroContent.primaryCta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-zinc-900 shadow-lg shadow-zinc-950/25 transition hover:bg-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+                  aria-label={heroContent.primaryCta.ariaLabel}
+                >
+                  {heroContent.primaryCta.label}
+                </a>
+              </motion.div>
+              <motion.div
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...transition, delay: reduceMotion ? 0 : 0.14 }}
+                whileHover={reduceMotion ? undefined : { scale: 1.02 }}
+              >
+                <a
+                  href={heroContent.secondaryCta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+                  aria-label={heroContent.secondaryCta.ariaLabel}
+                >
+                  {heroContent.secondaryCta.label}
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
