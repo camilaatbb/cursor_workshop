@@ -1,287 +1,270 @@
 /**
- * ACTUALIZA TU INFO AQUÍ
- * Fuente central de textos, links y contenido de la landing.
+ * Fuente de verdad para textos y enlaces de la landing.
+ * Los componentes deben importar desde aquí para no duplicar strings.
  */
 
-export type LucideIconName = "Store" | "MonitorSmartphone" | "Megaphone";
+/** Nombres de ícono válidos en lucide-react (PascalCase). */
+export type LucideIconName =
+  | "Code2"
+  | "Users"
+  | "Rocket"
+  | "Layers"
+  | "Sparkles"
+  | "MessageCircle";
 
-// ACTUALIZA TU INFO AQUÍ
 export const site = {
-  brand: "CAMILA TENESACA",
-  type: "Servicio freelance",
-  audience: "Negocios locales",
-  goal: "Mostrar proyectos",
-  tagline:
-    "Webs y landings claras para que más clientes te escriban sin fricción.",
-  email: "camilatenesaca2002@gmail.com",
-  whatsAppNumber: "0958887736",
+  brand: "Camila Tenesaca",
+
   meta: {
-    title: "Camila Tenesaca | Desarrollo web para negocios locales",
+    title: "Camila Tenesaca — Desarrollo web y producto digital",
     description:
-      "Diseño y desarrollo de sitios modernos para negocios locales: más confianza, mejor presencia y más consultas por WhatsApp o correo.",
+      "Desarrollo frontend con foco en resultados: sitios rápidos, equipos alineados y código que se puede mantener. Abierta a roles remotos e híbridos.",
   },
+
+  email: "contacto@tudominio.com",
+
   urls: {
-    linkedIn: "https://www.linkedin.com/in/camila-tenesaca-568a2b240/",
+    linkedIn: "https://www.linkedin.com/in/tu-perfil/",
+    /**
+     * WhatsApp internacional sin 0 inicial del celular local.
+     * Confirma el prefijo de país respecto a tu operador.
+     */
     whatsApp: "https://wa.me/593958887736",
   },
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ
-export const headerContent = {
-  ctaLabel: "Ver mi trabajo",
-  ctaHref: site.urls.linkedIn,
-  ctaAriaLabel: "Abrir LinkedIn para ver el trabajo de Camila",
-  nav: [
-    { href: "#acerca", label: "Acerca" },
-    { href: "#servicios", label: "Servicios" },
-    { href: "#proceso", label: "Proceso" },
-    { href: "#portafolio", label: "Portafolio" },
-    { href: "#testimonios", label: "Clientes" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#contacto", label: "Contacto" },
+export const headerNavContent = {
+  links: [
+    { label: "Acerca", href: "#acerca" },
+    { label: "Servicios", href: "#servicios" },
+    { label: "Proceso", href: "#proceso" },
+    { label: "Casos", href: "#portafolio" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contacto", href: "#contacto" },
   ] as const,
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ
+export const headerContent = {
+  ctaLabel: "LinkedIn",
+  ctaAriaLabel: "Abrir perfil de LinkedIn en una pestaña nueva",
+  menuOpenLabel: "Abrir menú",
+  menuCloseLabel: "Cerrar menú",
+} as const;
+
 export const heroContent = {
-  id: "hero",
-  badge: "Freelance frontend · negocios locales",
-  /** Imagen de ancla (sustituye por tu foto o proyecto). */
-  image: {
-    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=80",
-    alt: "Espacio de trabajo luminoso con detalle de laptop",
-  },
-  heading: "Tu negocio local, con una web que genera confianza y contactos.",
-  gradientHighlight: "confianza y contactos",
+  roleLine: "Desarrollo frontend · Producto digital",
+  heading: "Sitios y productos web que tu equipo puede mantener y medir.",
+  gradientHighlight: "mantener y medir",
   subtitle:
-    "Diseño y código enfocados en lo que importa: que el cliente entienda tu oferta en segundos y te escriba por WhatsApp o correo sin dar vueltas.",
+    "Te ayudo a pasar de diseño a producción sin sorpresas: entregas por etapas, comunicación clara con diseño y stakeholders, y prioridad en rendimiento y accesibilidad.",
+  imageSrc: "/camila-tenesaca.png",
+  imageAlt:
+    "Retrato de Camila Tenesaca, desarrolladora frontend, en un entorno profesional.",
   primaryCta: {
-    label: "Ver mi trabajo",
-    href: site.urls.linkedIn,
-    ariaLabel: "Abrir LinkedIn para ver el trabajo de Camila",
+    label: "Ver trayectoria",
+    ariaLabel: "Ver perfil y proyectos en LinkedIn",
   },
   secondaryCta: {
-    label: "Escribirme por WhatsApp",
-    href: site.urls.whatsApp,
-    ariaLabel: "Abrir conversación por WhatsApp con Camila",
+    label: "Escribirme",
+    href: `mailto:${site.email}?subject=Hola%20Camila%20%E2%80%94%20contacto%20desde%20tu%20web`,
+    ariaLabel: "Enviar correo electrónico a Camila",
   },
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ
 export const aboutContent = {
   id: "acerca",
-  eyebrow: "Acerca de mí",
-  title: "Menos páginas decorativas. Más resultados medibles para tu negocio.",
-  paragraphs: [
-    "Trabajo con cafeterías, tiendas, estudios y marcas locales que necesitan verse profesionales en línea sin complicar el día a día.",
-    "Mi foco es el beneficio: una web rápida, clara y fácil de mantener, que guía al visitante hacia una acción concreta (reservar, pedir, llamar o escribir).",
+  title: "Quién está detrás del código",
+  lead: "Combino criterio técnico con empatía por el negocio: menos fricción entre diseño, desarrollo y lo que el usuario final necesita.",
+  body: [
+    "He trabajado en entornos donde el tiempo importa: priorizo acuerdos explícitos (qué se entrega, cuándo y con qué criterio de listo) y código legible para que otras personas puedan retomar sin romper nada.",
+    "Me mueve ver impacto medible: tiempos de carga aceptables, flujos que se entienden y equipos que confían en el despliegue. Si buscas una perfil que dialogue con producto y reclutamiento con el mismo lenguaje, encajo bien en squads ágiles.",
   ],
-  pullQuote:
-    "Cada sección tiene un propósito: que alguien que no te conoce decida confiar en ti en menos de un minuto.",
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ
-export const servicesSection = {
-  id: "servicios",
-  eyebrow: "Servicios",
-  title: "Lo que obtienes al trabajar conmigo",
-  intro:
-    "Tres pilares pensados para negocios que compiten con grandes cadenas y necesitan destacar con autenticidad.",
-} as const;
-
-// ACTUALIZA TU INFO AQUÍ
 export const valueItems: ReadonlyArray<{
   icon: LucideIconName;
   title: string;
   description: string;
 }> = [
   {
-    icon: "Store",
-    title: "Presencia que vende tu historia local",
+    icon: "Code2",
+    title: "Menos deuda técnica accidental",
     description:
-      "Jerarquía clara: qué ofreces, para quién, dónde estás y cómo reservar o comprar. El visitante no se pierde; avanza hacia el contacto.",
+      "Estructura clara, pruebas donde aportan y revisiones que reducen regresiones antes de producción.",
   },
   {
-    icon: "MonitorSmartphone",
-    title: "Rendimiento y lectura impecables en móvil",
+    icon: "Users",
+    title: "Un solo ritmo con diseño y producto",
     description:
-      "La mayoría entra desde el celular. Priorizo velocidad, contraste y botones fáciles de tocar para que nadie abandone por frustración.",
+      "Sincronizo expectativas temprano: prototipos realistas, handoff sin ambigüedad y ajustes cuando cambian prioridades.",
   },
   {
-    icon: "Megaphone",
-    title: "Mensajes que invitan a actuar",
+    icon: "Rocket",
+    title: "Velocidad con criterio",
     description:
-      "Titulares y CTAs alineados a tu objetivo: más mensajes, más visitas a tienda o más pedidos. Menos texto genérico, más conversión.",
+      "Optimizo lo que el usuario nota primero: LCP, interacciones fluidas y accesibilidad que no se degrada en móvil.",
   },
 ];
 
-// ACTUALIZA TU INFO AQUÍ
-export const processSection = {
-  id: "proceso",
-  eyebrow: "Cómo funciona",
-  title: "Un proceso claro, sin sorpresas",
+export const servicesSection = {
+  id: "servicios",
+  title: "Qué ganas al trabajar conmigo",
   intro:
-    "Cuatro pasos para pasar de la idea a una web viva, con entregables que puedes revisar en cada etapa.",
+    "Tres formas concretas en las que suelo aportar desde el frontend, sin promesas vacías:",
+} as const;
+
+export const processContent = {
+  id: "proceso",
+  title: "Cómo avanzamos juntos",
+  intro:
+    "Un proceso ligero que puedes adaptar a tu empresa; la idea es reducir incertidumbre en cada entrega.",
   steps: [
     {
-      n: "01",
-      title: "Diagnóstico express",
-      body: "Revisamos tu negocio, público y objetivo (más reservas, más pedidos, más credibilidad). Definimos qué debe ver y hacer el visitante primero.",
+      title: "Diagnóstico breve",
+      description:
+        "Alineamos objetivo, público y restricciones (plazo, stack, accesibilidad). Sales con un plan de entregas realista.",
     },
     {
-      n: "02",
-      title: "Propuesta y alcance",
-      body: "Te entrego alcance, tiempos y prioridades. Sabes qué incluye la primera versión y qué puede ir en una segunda fase sin romper el presupuesto.",
+      title: "Implementación por incrementos",
+      description:
+        "Entregas revisables en staging: ves avance real, no sorpresas finales. Ajustamos con feedback entre ciclos.",
     },
     {
-      n: "03",
-      title: "Diseño y desarrollo",
-      body: "Implementación con revisiones cortas: ves avances reales, das feedback y ajustamos antes del lanzamiento. Sin cajas negras.",
+      title: "Handoff y documentación mínima",
+      description:
+        "Lo esencial para que otro dev retome: convenciones, puntos de extensión y checklist de despliegue.",
     },
     {
-      n: "04",
-      title: "Lanzamiento y handoff",
-      body: "Publicación, enlaces de contacto probados y una guía breve para que tú o tu equipo puedan actualizar textos básicos con tranquilidad.",
+      title: "Mejora continua opcional",
+      description:
+        "Tras el lanzamiento, priorizamos métricas y quick wins (rendimiento, SEO técnico básico, deuda acotada).",
     },
-  ] as const,
+  ],
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ — testimonios de ejemplo; sustituye por clientes reales.
-export const testimonialsSection = {
+export const testimonialsContent = {
   id: "testimonios",
-  eyebrow: "Prueba social",
-  title: "Negocios como el tuyo, con mejores resultados en línea",
-  items: [
-    {
-      quote:
-        "Pasamos de un PDF en WhatsApp a una web que explica menú, horarios y ubicación en un pantallazo. Subieron las reservas los fines de semana.",
-      name: "María Elena Vásquez",
-      role: "Propietaria",
-      org: "Café barrio La Encina (ejemplo)",
-    },
-    {
-      quote:
-        "Necesitábamos credibilidad frente a clientes corporativos. La nueva landing transmitió orden y respuesta en menos de 48 h tras publicar.",
-      name: "Diego Armijos",
-      role: "Director",
-      org: "Servicios B2B locales (ejemplo)",
-    },
-  ] as const,
-} as const;
-
-// ACTUALIZA TU INFO AQUÍ — proyectos de ejemplo; enlaza casos reales cuando los tengas.
-export const portfolioSection = {
-  id: "portafolio",
-  eyebrow: "Portafolio",
-  title: "Ejemplos del tipo de problemas que resuelvo",
+  title: "Lo que destacan quienes ya colaboraron",
   intro:
-    "Casos representativos de sitios y landings orientadas a claridad y conversión. Sustituye imágenes y textos por tus proyectos reales.",
-  projects: [
-    {
-      title: "Landing para estudio de servicios locales",
-      outcome:
-        "Estructura en una sola página: servicios, precios orientativos, mapa y CTA a WhatsApp. Menos preguntas repetidas por chat.",
-      image: {
-        src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-        alt: "Pantalla con diseño web limpio",
-      },
-      tags: ["Next.js", "Conversión", "Mobile-first"],
-    },
-    {
-      title: "Sitio para marca gastronómica",
-      outcome:
-        "Galería ligera, menú escaneable y botón fijo de pedido. Tiempo de carga contenido para no perder hambrientos impacientes.",
-      image: {
-        src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80",
-        alt: "Interior de restaurante acogedor",
-      },
-      tags: ["UI", "Rendimiento", "SEO básico"],
-    },
-    {
-      title: "Página institucional con foco en contacto",
-      outcome:
-        "Formulario simple y enlaces claros a redes y WhatsApp. Reducción de clics hasta la acción principal.",
-      image: {
-        src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80",
-        alt: "Oficina moderna con luz natural",
-      },
-      tags: ["Accesibilidad", "Claridad", "Marca local"],
-    },
-  ] as const,
-} as const;
-
-// ACTUALIZA TU INFO AQUÍ
-export const faqSection = {
-  id: "faq",
-  eyebrow: "FAQ",
-  title: "Preguntas frecuentes antes de escribirme",
+    "Referencias sintéticas basadas en el tipo de feedback que suelo recibir en proyectos reales (nombres y empresas de ejemplo).",
   items: [
     {
-      question: "¿Cuánto tarda un proyecto típico?",
-      answer:
-        "Una landing enfocada suele llevar entre 2 y 4 semanas según contenido, revisiones y si ya tienes fotos y textos. Te doy un calendario claro al cerrar alcance.",
+      quote:
+        "Camila tradujo un diseño complejo en componentes reutilizables sin que el equipo perdiera velocidad. La comunicación en daily fue clara y sin ruido.",
+      name: "Andrea Méndez",
+      role: "Product Lead",
+      company: "Nimbus Analytics (ejemplo)",
+      outcome: "Reducción de retrabajo en QA",
     },
     {
-      question: "¿Necesito tener todo el contenido listo?",
-      answer:
-        "No es obligatorio. Puedo trabajar con borradores y mejorar titulares y CTAs. Sí necesito al menos una idea clara de a quién quieres atraer y qué acción deseas.",
+      quote:
+        "Teníamos deuda en el front y miedo a tocar el CSS legacy. En pocas semanas estabilizamos la base y pudimos shippear features otra vez.",
+      name: "Diego Villacrés",
+      role: "Engineering Manager",
+      company: "Casa Origen (ejemplo)",
+      outcome: "Base frontend más predecible",
     },
     {
-      question: "¿Incluye hosting o dominio?",
-      answer:
-        "Puedo orientarte en la compra de dominio y hosting o desplegar en la plataforma que prefieras. Lo acordamos en la propuesta para que no haya costos ocultos.",
+      quote:
+        "Se nota cuando alguien piensa en el usuario final y en el próximo desarrollador que leerá el código. Recomendaría sin dudar para un squad remoto.",
+      name: "Laura Ibáñez",
+      role: "Head of Design",
+      company: "Estudio Brújula (ejemplo)",
+      outcome: "Handoff diseño–dev más fluido",
     },
-    {
-      question: "¿Haces mantenimiento después del lanzamiento?",
-      answer:
-        "Sí, por paquetes puntuales o pequeñas retenciones mensuales: cambios de carta, campañas, mejoras de velocidad o nuevas secciones.",
-    },
-  ] as const,
+  ],
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ
-export const finalSection = {
-  id: "cta-final",
-  eyebrow: "Siguiente paso",
-  title: "¿Listo para una web que trabaje por tu negocio?",
-  description:
-    "Cuéntame qué vendes, en qué zona estás y qué te gustaría que hiciera el visitante al entrar. Respondo con propuesta o una llamada breve.",
-  primaryCta: {
-    label: "Ver mi trabajo",
-    href: site.urls.linkedIn,
-    ariaLabel: "Abrir LinkedIn para ver el trabajo de Camila",
-  },
-  secondaryCta: {
-    label: "WhatsApp",
-    href: site.urls.whatsApp,
-    ariaLabel: "Abrir WhatsApp para contactar a Camila",
-  },
+export const portfolioContent = {
+  id: "portafolio",
+  title: "Casos y ejemplos",
+  intro:
+    "Selección de líneas de trabajo representativas; sustituye enlaces e imágenes cuando tengas casos publicables.",
+  items: [
+    {
+      title: "Landing de marca personal",
+      outcome:
+        "Primera impresión clara para reclutadores: CTA directos, buen contraste y carga rápida en móvil.",
+      tag: "Next.js · Tailwind",
+      href: site.urls.linkedIn,
+      imageSrc: "/camila-tenesaca.png",
+      imageAlt: "Vista del sitio personal de Camila Tenesaca.",
+    },
+    {
+      title: "Panel interno de operaciones",
+      outcome:
+        "Tablero con filtros y estados vacíos accesibles; reducción de clics en tareas repetitivas del equipo.",
+      tag: "React · TypeScript",
+      href: "#portafolio",
+      imageSrc: "/camila-tenesaca.png",
+      imageAlt: "Detalle de interfaz de panel de operaciones (ejemplo).",
+    },
+    {
+      title: "Flujo de onboarding B2B",
+      outcome:
+        "Wizard en pasos con validación en línea y mensajes de error comprensibles; menos abandono en el primer acceso.",
+      tag: "Frontend · A11y",
+      href: "#portafolio",
+      imageSrc: "/camila-tenesaca.png",
+      imageAlt: "Pantalla de flujo de onboarding (ejemplo).",
+    },
+  ],
 } as const;
 
-// ACTUALIZA TU INFO AQUÍ
-export const footerContent = {
+export const faqContent = {
+  id: "faq",
+  title: "Preguntas frecuentes",
+  intro: "Respuestas directas para reclutadores y líderes técnicos.",
+  items: [
+    {
+      question: "¿Trabajas remoto o híbrido?",
+      answer:
+        "Sí. Me adapto a husos compartidos razonables y a ceremonias acordadas; valoro documentación asíncrona para no bloquear al equipo.",
+    },
+    {
+      question: "¿Qué stack dominas?",
+      answer:
+        "Mi núcleo es JavaScript/TypeScript con React o Next.js, estilos con Tailwind u otras soluciones del proyecto, y integración con APIs REST o GraphQL según lo que ya use el equipo.",
+    },
+    {
+      question: "¿Cómo entregas para que otro dev pueda retomar?",
+      answer:
+        "Commits y PRs pequeños, README o notas breves donde hace falta, y componentes con interfaces claras. Evito “magia” sin explicar.",
+    },
+    {
+      question: "¿Incluyes pruebas o revisión de accesibilidad?",
+      answer:
+        "Cuando el proyecto lo permite, sí: pruebas focalizadas en lógica crítica y pasadas básicas de teclado/lector de pantalla en vistas nuevas o refactorizadas.",
+    },
+    {
+      question: "¿Cuánto tardas en incorporarte a un codebase existente?",
+      answer:
+        "Depende del tamaño y la documentación, pero suelo necesitar pocos días para el primer aporte útil y una o dos semanas para sentirme cómoda con áreas más sensibles.",
+    },
+    {
+      question: "¿Puedo contactarte para una rol concreto?",
+      answer:
+        "Por supuesto. Envía correo con nombre de empresa, tipo de contrato y stack; respondo con disponibilidad y enlaces relevantes.",
+    },
+  ],
+} as const;
+
+export const closingCtaContent = {
   id: "contacto",
-  tagline:
-    "Desarrollo frontend y diseño UI para negocios locales. Respuesta ágil, procesos claros.",
-  columns: [
-    {
-      title: "Secciones",
-      links: [
-        { href: "#acerca", label: "Acerca" },
-        { href: "#servicios", label: "Servicios" },
-        { href: "#proceso", label: "Proceso" },
-        { href: "#portafolio", label: "Portafolio" },
-      ] as const,
-    },
-    {
-      title: "Más",
-      links: [
-        { href: "#testimonios", label: "Clientes" },
-        { href: "#faq", label: "FAQ" },
-        { href: "#cta-final", label: "Contratar" },
-      ] as const,
-    },
-  ] as const,
-  socialLabel: "Contacto directo",
+  title: "¿Hablamos?",
+  closingLine:
+    "Si buscas una desarrolladora frontend que una criterio técnico con comunicación clara, escríbeme o mira mi perfil en LinkedIn.",
+  primaryCta: {
+    label: "Abrir LinkedIn",
+    ariaLabel: "Ir al perfil de LinkedIn de Camila Tenesaca",
+  },
+} as const;
+
+export const footerContent = {
+  tagline: "Desarrollo frontend orientado a equipos y resultados.",
   copyrightHolder: site.brand,
+} as const;
+
+export const legalContent = {
+  note: "Contenido de ejemplo editable; actualiza enlaces y datos de contacto en content.ts.",
 } as const;

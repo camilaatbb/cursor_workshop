@@ -3,19 +3,23 @@
 :root {
   --background: #fafafa;
   --foreground: #18181b;
-  --muted: #71717a;
-  --accent: #e11d48;
-  --surface: #ffffff;
-  --border: rgba(24, 24, 27, 0.08);
+  --accent: #7c3aed;
+  --accent-strong: #5b21b6;
+  --accent-muted: rgba(124, 58, 237, 0.12);
+  --radius-section: 0;
+  --header-height: 3.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
   --color-accent: var(--accent);
-  --color-surface: var(--surface);
+  --color-accent-strong: var(--accent-strong);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -24,12 +28,15 @@ body {
   font-family: var(--font-sans);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+/* Secciones: ritmo vertical homogéneo (plan premium) */
+.section-y {
+  @apply px-4 py-20 sm:px-6 md:py-28;
+}
+
+.section-inner {
+  @apply mx-auto max-w-7xl;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-violet-600;
 }

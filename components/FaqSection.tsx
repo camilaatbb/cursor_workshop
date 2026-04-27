@@ -1,49 +1,45 @@
-import { ChevronDown } from "lucide-react";
-import { faqSection } from "@/constants/content";
-import { SectionReveal } from "@/components/SectionReveal";
+import { faqContent } from "@/constants/content";
 
 export function FaqSection() {
   return (
     <section
-      id={faqSection.id}
+      id={faqContent.id}
       aria-labelledby="faq-title"
-      className="border-b border-zinc-200/80 bg-zinc-50 px-4 py-24 sm:px-6 sm:py-32"
+      className="section-y border-b border-zinc-200/80 bg-zinc-50"
     >
-      <div className="mx-auto max-w-7xl">
-        <SectionReveal>
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-rose-600">
-              {faqSection.eyebrow}
-            </p>
-            <h2
-              id="faq-title"
-              className="mt-4 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl"
+      <div className="section-inner">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2
+            id="faq-title"
+            className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl"
+          >
+            {faqContent.title}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">
+            {faqContent.intro}
+          </p>
+        </div>
+        <div className="mx-auto mt-14 max-w-3xl divide-y divide-zinc-200 border-y border-zinc-200">
+          {faqContent.items.map((item) => (
+            <details
+              key={item.question}
+              className="group faq-details py-2"
             >
-              {faqSection.title}
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-16 max-w-3xl border-t border-zinc-200">
-            {faqSection.items.map((item) => (
-              <details
-                key={item.question}
-                className="group border-b border-zinc-200 bg-transparent"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-base font-semibold text-zinc-900 marker:content-none sm:text-lg [&::-webkit-details-marker]:hidden">
-                  {item.question}
-                  <ChevronDown
-                    className="size-5 shrink-0 text-zinc-400 transition duration-200 group-open:rotate-180"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                </summary>
-                <p className="pb-5 text-base leading-relaxed text-zinc-600">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </SectionReveal>
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-semibold text-zinc-900 marker:content-none sm:text-lg">
+                <span>{item.question}</span>
+                <span
+                  className="flex size-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 transition group-open:rotate-45 group-open:border-violet-200 group-open:text-violet-600"
+                  aria-hidden
+                >
+                  +
+                </span>
+              </summary>
+              <p className="pb-4 pl-0 pr-10 text-sm leading-relaxed text-zinc-600 sm:text-base">
+                {item.answer}
+              </p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );
