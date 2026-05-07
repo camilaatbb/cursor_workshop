@@ -48,7 +48,7 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-var(--header-height))] max-w-7xl flex-col justify-end px-4 pb-16 pt-10 sm:px-6 md:justify-center md:pb-24 md:pt-16">
         <div className="max-w-xl md:max-w-lg">
           <motion.p
-            className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.35rem] md:leading-tight"
+            className="text-sm font-semibold uppercase tracking-[0.28em] text-white sm:text-base"
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={transition}
@@ -56,7 +56,7 @@ export function HeroSection() {
             {site.brand}
           </motion.p>
           <motion.p
-            className="eyebrow mt-3 text-[0.65rem] text-violet-300 sm:text-xs"
+            className="eyebrow mt-4 text-[0.65rem] text-violet-300 sm:text-xs"
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduceMotion ? 0 : 0.04 }}
@@ -65,7 +65,7 @@ export function HeroSection() {
           </motion.p>
           <motion.h1
             id="hero-title"
-            className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-white sm:text-3xl sm:leading-snug md:text-[1.65rem] md:leading-snug"
+            className="mt-6 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-tight text-white sm:text-6xl md:text-7xl"
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduceMotion ? 0 : 0.08 }}
@@ -93,7 +93,7 @@ export function HeroSection() {
               transition={{ ...transition, delay: reduceMotion ? 0 : 0.16 }}
             >
               <a
-                href={site.urls.linkedIn}
+                href={heroContent.primaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-white px-6 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"

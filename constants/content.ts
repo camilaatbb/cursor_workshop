@@ -3,6 +3,8 @@
  * Los componentes deben importar desde aquí para no duplicar strings.
  */
 
+// ACTUALIZA TU INFO AQUÍ
+
 /** Nombres de ícono válidos en lucide-react (PascalCase). */
 export type LucideIconName =
   | "Code2"
@@ -12,23 +14,22 @@ export type LucideIconName =
   | "Sparkles"
   | "MessageCircle";
 
+export type ContactIconName = "Mail" | "MessageCircle" | "Linkedin";
+
 export const site = {
-  brand: "Camila Tenesaca",
+  brand: "CAMILA TENESACA",
 
   meta: {
-    title: "Camila Tenesaca — Desarrollo web y producto digital",
+    title: "Camila Tenesaca — Sitios web para negocios locales",
     description:
-      "Desarrollo frontend con foco en resultados: sitios rápidos, equipos alineados y código que se puede mantener. Abierta a roles remotos e híbridos.",
+      "Landing page profesional de Camila Tenesaca, desarrolladora web freelance para negocios locales que necesitan presencia digital clara, rápida y confiable.",
   },
 
-  email: "contacto@tudominio.com",
+  email: "camilatenesaca2002@gmail.com",
+  whatsAppDisplay: "0958887736",
 
   urls: {
-    linkedIn: "https://www.linkedin.com/in/tu-perfil/",
-    /**
-     * WhatsApp internacional sin 0 inicial del celular local.
-     * Confirma el prefijo de país respecto a tu operador.
-     */
+    linkedIn: "https://www.linkedin.com/in/camila-tenesaca-568a2b240/",
     whatsApp: "https://wa.me/593958887736",
   },
 } as const;
@@ -37,35 +38,36 @@ export const headerNavContent = {
   links: [
     { label: "Acerca", href: "#acerca" },
     { label: "Servicios", href: "#servicios" },
-    { label: "Proceso", href: "#proceso" },
-    { label: "Casos", href: "#portafolio" },
-    { label: "FAQ", href: "#faq" },
     { label: "Contacto", href: "#contacto" },
   ] as const,
 } as const;
 
 export const headerContent = {
-  ctaLabel: "LinkedIn",
-  ctaAriaLabel: "Abrir perfil de LinkedIn en una pestaña nueva",
+  ctaLabel: "Ver mi trabajo",
+  ctaHref: site.urls.linkedIn,
+  ctaAriaLabel: "Ver el trabajo de Camila Tenesaca en LinkedIn",
+  navAriaLabel: "Secciones principales",
+  mobileNavAriaLabel: "Secciones principales en móvil",
   menuOpenLabel: "Abrir menú",
   menuCloseLabel: "Cerrar menú",
 } as const;
 
 export const heroContent = {
-  roleLine: "Desarrollo frontend · Producto digital",
-  heading: "Sitios y productos web que tu equipo puede mantener y medir.",
-  gradientHighlight: "mantener y medir",
+  roleLine: "Desarrollo web freelance para negocios locales",
+  heading: "Presencia digital clara para negocios que quieren vender mejor.",
+  gradientHighlight: "vender mejor",
   subtitle:
-    "Te ayudo a pasar de diseño a producción sin sorpresas: entregas por etapas, comunicación clara con diseño y stakeholders, y prioridad en rendimiento y accesibilidad.",
+    "Diseño e implemento sitios modernos, rápidos y fáciles de actualizar para que tus clientes entiendan lo que ofreces y sepan cómo contactarte.",
   imageSrc: "/camila-tenesaca.png",
   imageAlt:
-    "Retrato de Camila Tenesaca, desarrolladora frontend, en un entorno profesional.",
+    "Retrato profesional de Camila Tenesaca, desarrolladora web freelance.",
   primaryCta: {
-    label: "Ver trayectoria",
-    ariaLabel: "Ver perfil y proyectos en LinkedIn",
+    label: "Ver mi trabajo",
+    href: site.urls.linkedIn,
+    ariaLabel: "Ver el trabajo de Camila Tenesaca en LinkedIn",
   },
   secondaryCta: {
-    label: "Escribirme",
+    label: "Agendar una idea",
     href: `mailto:${site.email}?subject=Hola%20Camila%20%E2%80%94%20contacto%20desde%20tu%20web`,
     ariaLabel: "Enviar correo electrónico a Camila",
   },
@@ -73,12 +75,14 @@ export const heroContent = {
 
 export const aboutContent = {
   id: "acerca",
-  title: "Quién está detrás del código",
-  lead: "Combino criterio técnico con empatía por el negocio: menos fricción entre diseño, desarrollo y lo que el usuario final necesita.",
+  eyebrow: "Misión",
+  title: "Convertir ideas locales en experiencias web simples, elegantes y listas para crecer.",
+  lead: "Trabajo con emprendedores, marcas personales y pequeños negocios que necesitan una web profesional sin procesos complicados.",
   body: [
-    "He trabajado en entornos donde el tiempo importa: priorizo acuerdos explícitos (qué se entrega, cuándo y con qué criterio de listo) y código legible para que otras personas puedan retomar sin romper nada.",
-    "Me mueve ver impacto medible: tiempos de carga aceptables, flujos que se entienden y equipos que confían en el despliegue. Si buscas una perfil que dialogue con producto y reclutamiento con el mismo lenguaje, encajo bien en squads ágiles.",
+    "Mi enfoque une diseño limpio, contenido directo y desarrollo con buenas prácticas para que tu página no solo se vea bien, también cargue rápido y guíe a la acción correcta.",
+    "Cada proyecto empieza con una conversación sobre tus objetivos: qué vendes, a quién ayudas y qué debe hacer una persona después de visitar tu sitio.",
   ],
+  proof: ["Sitios responsivos", "CTA claros", "Entrega ordenada"],
 } as const;
 
 export const valueItems: ReadonlyArray<{
@@ -88,29 +92,30 @@ export const valueItems: ReadonlyArray<{
 }> = [
   {
     icon: "Code2",
-    title: "Menos deuda técnica accidental",
+    title: "Landing pages profesionales",
     description:
-      "Estructura clara, pruebas donde aportan y revisiones que reducen regresiones antes de producción.",
+      "Páginas de una sola vista con mensaje claro, carga rápida y estructura pensada para convertir visitas en contactos.",
   },
   {
-    icon: "Users",
-    title: "Un solo ritmo con diseño y producto",
+    icon: "Sparkles",
+    title: "Identidad visual aplicada",
     description:
-      "Sincronizo expectativas temprano: prototipos realistas, handoff sin ambigüedad y ajustes cuando cambian prioridades.",
+      "Uso color, tipografía y ritmo visual para que tu negocio se sienta confiable desde el primer vistazo.",
   },
   {
-    icon: "Rocket",
-    title: "Velocidad con criterio",
+    icon: "MessageCircle",
+    title: "Canales de contacto directos",
     description:
-      "Optimizo lo que el usuario nota primero: LCP, interacciones fluidas y accesibilidad que no se degrada en móvil.",
+      "Integro email, WhatsApp y redes para que tus clientes puedan escribirte sin perder tiempo buscando información.",
   },
 ];
 
 export const servicesSection = {
   id: "servicios",
-  title: "Qué ganas al trabajar conmigo",
+  eyebrow: "Servicios",
+  title: "Un sitio que explica tu valor antes de la primera llamada.",
   intro:
-    "Tres formas concretas en las que suelo aportar desde el frontend, sin promesas vacías:",
+    "Me enfoco en lo esencial para negocios locales: presencia clara, confianza visual y caminos de contacto visibles.",
 } as const;
 
 export const processContent = {
@@ -251,20 +256,61 @@ export const faqContent = {
 
 export const closingCtaContent = {
   id: "contacto",
-  title: "¿Hablamos?",
+  eyebrow: "Contacto",
+  title: "Tu próxima página puede empezar con un mensaje.",
   closingLine:
-    "Si buscas una desarrolladora frontend que una criterio técnico con comunicación clara, escríbeme o mira mi perfil en LinkedIn.",
+    "Cuéntame qué negocio quieres mostrar, qué servicio necesitas impulsar y qué acción quieres que tome tu cliente ideal.",
   primaryCta: {
-    label: "Abrir LinkedIn",
-    ariaLabel: "Ir al perfil de LinkedIn de Camila Tenesaca",
+    label: "Ver mi trabajo",
+    href: site.urls.linkedIn,
+    ariaLabel: "Ver el trabajo de Camila Tenesaca en LinkedIn",
+  },
+  secondaryCta: {
+    label: "Escribirme por WhatsApp",
+    href: site.urls.whatsApp,
+    ariaLabel: "Escribir a Camila Tenesaca por WhatsApp",
   },
 } as const;
 
 export const footerContent = {
-  tagline: "Desarrollo frontend orientado a equipos y resultados.",
+  tagline: "Desarrollo web freelance con enfoque en claridad, confianza y conversión.",
   copyrightHolder: site.brand,
+  contactTitle: "Contacto",
+  socialTitle: "Redes",
+  contactLinks: [
+    {
+      label: site.email,
+      href: `mailto:${site.email}`,
+      icon: "Mail",
+      ariaLabel: "Enviar correo electrónico a Camila Tenesaca",
+    },
+    {
+      label: site.whatsAppDisplay,
+      href: site.urls.whatsApp,
+      icon: "MessageCircle",
+      ariaLabel: "Escribir a Camila Tenesaca por WhatsApp",
+    },
+  ] as const satisfies ReadonlyArray<{
+    label: string;
+    href: string;
+    icon: ContactIconName;
+    ariaLabel: string;
+  }>,
+  socialLinks: [
+    {
+      label: "LinkedIn",
+      href: site.urls.linkedIn,
+      icon: "Linkedin",
+      ariaLabel: "Abrir LinkedIn de Camila Tenesaca",
+    },
+  ] as const satisfies ReadonlyArray<{
+    label: string;
+    href: string;
+    icon: ContactIconName;
+    ariaLabel: string;
+  }>,
 } as const;
 
 export const legalContent = {
-  note: "Contenido de ejemplo editable; actualiza enlaces y datos de contacto en content.ts.",
+  note: "Sitio desarrollado para presentar proyectos y facilitar contacto profesional.",
 } as const;

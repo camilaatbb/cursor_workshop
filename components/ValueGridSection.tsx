@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import {
   Code2,
@@ -20,6 +23,8 @@ const ICON_MAP: Record<LucideIconName, LucideIcon> = {
 };
 
 export function ValueGridSection() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id={servicesSection.id}
@@ -28,9 +33,10 @@ export function ValueGridSection() {
     >
       <div className="section-inner">
         <div className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow">{servicesSection.eyebrow}</p>
           <h2
             id="services-title"
-            className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl md:text-4xl"
+            className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl md:text-5xl"
           >
             {servicesSection.title}
           </h2>
@@ -38,13 +44,24 @@ export function ValueGridSection() {
             {servicesSection.intro}
           </p>
         </div>
-        <ul className="mt-16 grid divide-y divide-zinc-200 border-y border-zinc-200 md:grid-cols-3 md:divide-x md:divide-y-0">
+        <motion.ul
+          className="mt-16 grid gap-4 md:grid-cols-3"
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
           {valueItems.map((item) => {
             const Icon = ICON_MAP[item.icon];
             return (
-              <li key={item.title} className="flex flex-col gap-4 px-1 py-12 md:px-8">
+              <motion.li
+                key={item.title}
+                className="group flex min-h-64 flex-col justify-between rounded-2xl border border-zinc-200 bg-zinc-50 p-6 transition hover:-translate-y-1 hover:border-zinc-300 hover:bg-white hover:shadow-xl hover:shadow-zinc-950/[0.06]"
+                whileHover={reduceMotion ? undefined : { y: -6 }}
+                transition={{ duration: 0.2 }}
+              >
                 <Icon
-                  className="size-5 shrink-0 text-violet-600"
+                  className="size-6 shrink-0 text-violet-600 transition group-hover:scale-110"
                   aria-hidden
                 />
                 <div>
@@ -55,10 +72,10 @@ export function ValueGridSection() {
                     {item.description}
                   </p>
                 </div>
-              </li>
+              </motion.li>
             );
           })}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );

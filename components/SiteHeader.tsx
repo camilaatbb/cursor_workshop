@@ -22,7 +22,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 h-[var(--header-height)] border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 h-[var(--header-height)] border-b border-white/60 bg-white/75 shadow-sm shadow-zinc-950/[0.03] backdrop-blur-xl">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link
           href="/"
@@ -33,7 +33,7 @@ export function SiteHeader() {
 
         <nav
           className="hidden items-center gap-1 lg:flex"
-          aria-label="Secciones principales"
+          aria-label={headerContent.navAriaLabel}
         >
           {headerNavContent.links.map((item) => (
             <a
@@ -48,7 +48,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href={site.urls.linkedIn}
+            href={headerContent.ctaHref}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden min-h-10 shrink-0 items-center justify-center rounded-lg bg-zinc-900 px-4 text-sm font-medium text-white transition hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900 sm:inline-flex"
@@ -87,7 +87,7 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           />
           <div className="relative z-10 h-full w-[min(100%,20rem)] border-l border-zinc-200 bg-white px-4 py-6 shadow-lg">
-            <nav className="flex flex-col gap-1" aria-label="Secciones (móvil)">
+            <nav className="flex flex-col gap-1" aria-label={headerContent.mobileNavAriaLabel}>
               {headerNavContent.links.map((item) => (
                 <a
                   key={item.href}
@@ -99,7 +99,7 @@ export function SiteHeader() {
                 </a>
               ))}
               <a
-                href={site.urls.linkedIn}
+                href={headerContent.ctaHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex min-h-12 items-center justify-center rounded-lg bg-zinc-900 px-4 text-sm font-medium text-white"

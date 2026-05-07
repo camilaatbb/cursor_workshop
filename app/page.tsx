@@ -1,11 +1,7 @@
 import { AboutSection } from "@/components/AboutSection";
-import { FaqSection } from "@/components/FaqSection";
 import { FinalCtaAndFooter } from "@/components/FinalCtaAndFooter";
 import { HeroSection } from "@/components/HeroSection";
-import { PortfolioSection } from "@/components/PortfolioSection";
-import { ProcessSection } from "@/components/ProcessSection";
 import { SiteHeader } from "@/components/SiteHeader";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ValueGridSection } from "@/components/ValueGridSection";
 
 export default function Home() {
@@ -16,10 +12,6 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ValueGridSection />
-        <ProcessSection />
-        <TestimonialsSection />
-        <PortfolioSection />
-        <FaqSection />
       </main>
       <FinalCtaAndFooter />
     </div>
